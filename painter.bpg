@@ -1,0 +1,32 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = painter.exe example.dll pictures.dll sergius.dll nolar2004.dll
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+painter.exe: generator\painter.dpr
+  $(DCC)
+
+example.dll: modules\example\example.dpr
+  $(DCC)
+
+pictures.dll: modules\default\pictures.dpr
+  $(DCC)
+
+sergius.dll: modules\sergius\sergius.dpr
+  $(DCC)
+
+nolar2004.dll: modules\nolar2004\nolar2004.dpr
+  $(DCC)
+
+
