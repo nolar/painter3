@@ -67,14 +67,14 @@ var
   XC, YC, AC, DC, RC, GC, BC: Extended;
 begin
   if obj = nil then exit;
-  // ограничения на значения
+  // РѕРіСЂР°РЅРёС‡РµРЅРёСЏ РЅР° Р·РЅР°С‡РµРЅРёСЏ
   if (XS < 2) then XS := 2;
   if (YS < 2) then YS := 2;
   if (X2 < X1) then begin XC := X1; X1 := X2; X2 := XC; end;
   if (Y2 < Y1) then begin YC := Y1; Y1 := Y2; Y2 := YC; end;
-  // создаем объект, куда будет рисоваться
+  // СЃРѕР·РґР°РµРј РѕР±СЉРµРєС‚, РєСѓРґР° Р±СѓРґРµС‚ СЂРёСЃРѕРІР°С‚СЊСЃСЏ
   Buffer := AllocMem(XS*YS*sizeof(Buffer^[0]));
-  // выполняем попиксельную прорисовку
+  // РІС‹РїРѕР»РЅСЏРµРј РїРѕРїРёРєСЃРµР»СЊРЅСѓСЋ РїСЂРѕСЂРёСЃРѕРІРєСѓ
   for X := 0 to XS-1 do begin
     for Y := 0 to YS-1 do begin
       xc := X1 + (X/(XS-1)) * (X2-X1);
